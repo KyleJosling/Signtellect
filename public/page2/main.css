@@ -1,0 +1,43 @@
+
+body{
+    background-color: #f4f4f4;
+}
+
+
+h1{
+    font-size: 5em;
+    margin-bottom: 1em;
+}
+
+#slide{
+    height: 30em;
+    overflow:hidden;  
+}
+
+
+
+.button-image{
+    width: 35%;
+}
+
+#countdown{
+    font-size: 18em;
+    color: black;
+}
+
+#progressbar{
+    margin-top: 1em;
+    background-color: #428bca;
+}
+
+.score{
+    display:inline-block;
+    font-size: 4em;
+}
+
+#score-div{
+    padding-top: 0.5em;
+    text-align: center;
+}
+
+

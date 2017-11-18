@@ -12,8 +12,7 @@ var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 //mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb://lab3:lab3password@ds141175.mlab.com:41175/lab3', { useMongoClient: true }); // connect to our database
-//mongoose.connect('mongodb://localhost:27017/board', { useMongoClient: true }); // connect to our database
+mongoose.connect('mongodb://hackWestern4:hackDatabase1@ds113566.mlab.com:13566/hackwesternsign', { useMongoClient: true }); // connect to our database
 
 //var Bear     = require('./app/models/bear');
 var Board = require('./app/models/board');
@@ -38,6 +37,7 @@ router.use(function(req, res, next) {
     next(); // make sure we go to the next routes and don't stop here
 });
 
+//ROUTES FOR PAGES
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
     
@@ -51,6 +51,32 @@ router.get('/page1', function(req, res) {
     res.sendFile("page1.html", {"root": __dirname+'/public/page1'});
     console.log("root "+ __dirname+'/public/page1');
 });
+
+// page1 route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/page2', function(req, res) {
+    
+    res.sendFile("page2.html", {"root": __dirname+'/public/page2'});
+    console.log("root "+ __dirname+'/public/page2');
+});
+
+// page1 route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/page3', function(req, res) {
+    
+    res.sendFile("page3.html", {"root": __dirname+'/public/page3'});
+    console.log("root "+ __dirname+'/public/page3');
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 // more routes for our API will happen here
 router.route('/board')
@@ -132,6 +158,9 @@ router.route('/board/:board_id')
         });
     });
     
+
+
+
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
