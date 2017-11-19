@@ -34,6 +34,12 @@ h1{
     font-size: 18em;
 }
 
+.logoText{
+
+    font-family: 'Quicksand', sans-serif;
+
+}
+
 #progressbar{
     margin-top: 1em;
     background-color: #428bca;
