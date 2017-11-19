@@ -49,7 +49,8 @@
                         </ul>
                     </div>
                 </nav>
-                <h1 class="text-center">Sign Language Duolingo</h1>
+                <h1 class="text-center">The Alphabet</h1>
+                <hr>
             </div><!--Padding row-->
             <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
         </div>
@@ -65,7 +66,11 @@
             <div class="col-lg-4 col-md-4 col-sm-5 col-xs-5 content">
                 <!--Possibility buttons-->
                 <div id="buttons">
-                    <button class="btn btn-primary" id="btn0">A</button> <button class="btn btn-primary" id="btn1">B</button> <button class="btn btn-primary" id="btn2">C</button> <button class="btn btn-primary" id="btn3">D</button> <button class="btn btn-primary" id="btn4">E</button>
+                    <button class="options btn btn-primary" id="btn0">Select</button> 
+                    <button class="options btn btn-primary" id="btn1">the</button> 
+                    <button class="options btn btn-primary" id="btn2">right</button> 
+                    <button class="options btn btn-primary" id="btn3">button</button> 
+                    <button class="options btn btn-primary" id="btn4">!</button>
                 </div>
             </div><!--Padding row-->
             <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
@@ -75,12 +80,19 @@
             <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div><!--Padding row-->
             <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10 content">
                 <div id="progressbar"></div>
+                
                 <div id="score-div">
                     <p class='score'>Score:</p>
                     <p class='score' id='correct'>0</p>
                     <p class='score'>/</p>
                     <p class='score' id='total'>0</p>
                 </div>
+
+                <div id='move-on'>
+                    <div id='stay' class='btn btn-warning'>Stay on Course 1</div>
+                    <a href='page2'><div id= 'go' class='btn btn-success'>Continue to Course 2</div></a>
+                </div>
+
             </div><!--Padding row-->
             <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
         </div>
