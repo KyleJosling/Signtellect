@@ -2,16 +2,10 @@ body{
     background-color: #f4f4f4;
 }
 
-h1{
-    font-size: 3em;
-}
 
-hr{
-    border: none;
-    height: 1px;
-    /* Set the hr color */
-    color: #333; /* old IE */
-    background-color: #333; /* Modern Browsers */
+h1{
+    font-size: 5em;
+    margin-bottom: 1em;
 }
 
 #slide{
@@ -19,8 +13,10 @@ hr{
     overflow:hidden;  
 }
 
+
+
 .button-image{
-    width: 45%;
+    width: 35%;
 }
 
 #countdown{
@@ -41,22 +37,5 @@ hr{
 #score-div{
     padding-top: 0.5em;
     text-align: center;
-}
-
-#move-on{
-    padding-top: 0.5em;
-    font-size: 1.5em;
-    display: inline-block;
-    vertical-align:middle;
-}
-
-#go {
-    font-size:1.5em;
-    margin-left: 1em;
-}
-
-#stay {
-    font-size:1.5em;
-    margin-left: 1em;
 }
 

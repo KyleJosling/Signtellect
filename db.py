@@ -5,13 +5,13 @@ import random
 NUM_FEATURES = 60
 
 def get_engine_and_table():
-    engine = create_engine('sqlite:///asl_data.db', echo=True)
+    engine = create_engine('sqlite:///new_data.db', echo=True)
 
     metadata = MetaData()
     columns = [Column('feat' + str(i), Numeric) for i in range(NUM_FEATURES)]
     columns.append(Column('sign', String(length=1)))
     tagged_data = Table('tagged_data', metadata, *columns)
-    
+
     metadata.create_all(engine)
 
     return engine, tagged_data

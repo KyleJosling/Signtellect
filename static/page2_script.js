@@ -4,7 +4,7 @@
 $(document).ready(function(){
 
    var countDownTime = 3;
-   var waitTime = 1000;
+   var waitTime = 2000;
    var onCountDown = true;
    var nextImage = "";
    var pictureCountDownTime = 10;
@@ -12,11 +12,7 @@ $(document).ready(function(){
    var buttonClicked = false;
    var correct = 0;
    var incorrect = 0;
-   var goal = 5;
-   var onPause = false;
 
-  $("#move-on").hide(); 
-   $(".options").addClass("disabled");
 
    //returns random letter
    function randomLetter(){
@@ -59,7 +55,7 @@ $(document).ready(function(){
    }
 
    function reset(){
-      $(".options").removeClass('btn-success btn-danger');
+      $(".btn").removeClass('btn-success btn-danger');
       countDownTime = pictureCountDownTime;  
       buttonClicked = false;
    }
@@ -67,7 +63,7 @@ $(document).ready(function(){
     //main countdown function
    function countdown(){
       
-      if(buttonClicked == false && onPause == false){
+      if(!buttonClicked){
         countDownTime = countDownTime - 1;
       
         //on start countdown
@@ -93,7 +89,7 @@ $(document).ready(function(){
             var randomL = randomLetter();
             newimage(randomL);
             setupButtons(randomL);
-            $(".options").removeClass("disabled");
+            $(".btn").removeClass("disabled");
           }
 
           //timer done user didn't enter
@@ -103,7 +99,7 @@ $(document).ready(function(){
 
             incorrect++;
             updateScore();
-            $(".options").addClass("disabled");
+            $(".btn").addClass("disabled");
             setTimeout(function(){ reset() }, waitTime );
 
           }
@@ -122,32 +118,12 @@ $(document).ready(function(){
       $('#total').html('');
       $('#total').append(correct+incorrect);
 
-      if(correct >= goal){
-        goalReached();
-      }
-
    }
    
-
-    function goalReached(){
-      onPause = true;
-      $("#score-div").hide();
-      $("#move-on").show();
-
-   }
-   
-
-   $("#stay").click(function(){
-      onPause = false;
-      $("#move-on").hide();
-      $("#score-div").show();
-      goal = goal*2;
-      
-   });
    
 
    //click button
-   $(".options").click(function(){
+   $(".btn").click(function(){
       
       if(!$(this).hasClass("disabled")){
 
@@ -157,18 +133,18 @@ $(document).ready(function(){
 
         if(buttonNumber == rightAnswer){
           $("#"+this.id).removeClass("btn-primary").addClass("btn-success");
-          $("#countdown").css('color','#5cb85c');
+          $("#countdown").css('color','green');
           
           correct++;
         }else{
           $("#"+this.id).removeClass("btn-primary").addClass("btn-danger");
           $("#btn"+rightAnswer).removeClass("btn-primary").addClass("btn-success");
-          $("#countdown").css('color','#d9534f');
+          $("#countdown").css('color','red');
           
           incorrect++;
         }
 
-        $(".options").addClass("disabled");
+        $(".btn").addClass("disabled");
 
         updateScore();
         setTimeout(function(){ reset() }, waitTime );
