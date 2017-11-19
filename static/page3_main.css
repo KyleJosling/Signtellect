@@ -4,14 +4,22 @@ body{
 
 
 h1{
-    font-size: 5em;
+    font-size: 3em;
     margin-bottom: 1em;
+}
+
+hr{
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
 }
 
 #slide{
     height: 30em;
     overflow:hidden;
-
+    
 }
 
 #question-image{
@@ -27,7 +35,7 @@ h1{
     font-size: 3em;
     width: 100%;
     margin-bottom:0.2em;
-
+    
 }
 
 #countdown{
@@ -48,8 +56,7 @@ h1{
     padding-top: 0.5em;
     text-align: center;
 }
-
-p3{
+#success{
     font-size: 18em;
     color: green;
     text-align: center;

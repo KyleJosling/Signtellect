@@ -17,18 +17,18 @@ $(document).ready(function() {
 			do{
         var n = Math.floor(Math.random() * 26)
         correct = String.fromCharCode(65 + n);
-			}while(correct=="G" || correct=="R" || correct=="U")
+			}while(correct=="G" || correct=="R" || correct=="U" || correct =="P" || correct == "T")
     }
 
     function reset(){
-        failureCount = 0;
         updateScore();
         randomLetter();
         $("#countdown").html(' ');
         $("#countdown").append(correct);
         $("#answer-image").hide();
 				$("#success").html(' ');
-        countDownTime = 5;
+        countDownTime = 7;
+
 
 
     }
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
     function countDown() {
         countDownTime = countDownTime - 1;
-        moveProgressBar(countDownTime*20);//CHANGED
+        moveProgressBar(countDownTime*13);//CHANGED
 
         if (countDownTime >= 0 && testing == false) {
             $("#countdown").html('');
@@ -65,7 +65,7 @@ $(document).ready(function() {
                 $("#countdown").html(' ');
                 $("#countdown").append(correct);
 								incorrect = incorrect+1;
-                countDownTime = 5;
+                countDownTime = 7;
             }
 
         }
@@ -73,8 +73,7 @@ $(document).ready(function() {
         if (countDownTime == 0 && testing == true) {
             //restart the python reading function
             //callReader();
-            failureCount = failureCount + 1;
-
+								incorrect = incorrect+1;
                 //reset count, give answer, and display next image
                 //display old answer image for 2 seconds
                 answerImage();
@@ -82,9 +81,7 @@ $(document).ready(function() {
                 setTimeout(function () {
                     reset()
                 }, waitTime);
-                incorrect = incorrect+1;
-                failureCount = 0;
-                countDownTime = 5;
+                countDownTime = 7;
         }
     }
 
@@ -107,16 +104,16 @@ $(document).ready(function() {
 				console.log(attempt.symbol+" " + correct);
 
 				if (attempt.symbol == correct.toLowerCase()) {
-
 						if(comparing == false){
 							comparing = true;
 							scored = scored+1;
 							$("#answer-image").attr('src', "/static/images/sign_letters_answers_check/Sign_Language_with_" + correct + ".png");
+							$("#answer-image").show();
 							$("#success").append("CORRECT");
-						}
 
-						setTimeout(function(){reset()}, 1000);
-						comparing = false;
+							setTimeout(function(){reset()}, 1000);
+							comparing = false;
+						}
 					}
 				}
 
@@ -129,5 +126,5 @@ $(document).ready(function() {
         countDown()
     }, 1000);
 
-    var getLetter = setInterval(function(){callReader()}, 500);
+    var getLetter = setInterval(function(){callReader()}, 750);
 });

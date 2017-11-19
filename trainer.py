@@ -5,6 +5,7 @@ from hand_data import get_hand_position
 from lib import Leap
 import time
 import pickle
+import numpy as np
 
 NUM_SAMPLES = 100
 SAMPLE_DELAY = .1
@@ -41,9 +42,8 @@ def guess_char():
     controller.set_policy(Leap.Controller.POLICY_BACKGROUND_FRAMES)
 
     classes = clf.classes_
-
-    probs = zip(classes, clf.predict_proba([v for k, v in
-        get_hand_position(controller, True).iteritems()])[0])
+    things=np.array([v for k, v in get_hand_position(controller, True).iteritems()])
+    probs = zip(classes, clf.predict_proba(things.reshape(1,-1))[0])
 
     alpha = max([score for sym, score in probs])
 
@@ -68,5 +68,5 @@ def guess():
         time.sleep(1)
 
 if __name__ == "__main__":
-    train()
-    #guess()
+    #train()
+    guess()
