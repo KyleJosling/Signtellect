@@ -14,13 +14,10 @@ hr{
     background-color: #333; /* Modern Browsers */
 }
 
-
 #slide{
     height: 30em;
     overflow:hidden;  
 }
-
-
 
 .button-image{
     width: 45%;
