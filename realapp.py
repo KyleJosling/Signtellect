@@ -27,6 +27,16 @@ def page2():
 def page3():
 	return render_template('page3/page3.html')
 
+@app.route('/api/page4')
+def page4():
+	return render_template('page4/page4.html')
+
+
+@app.route('/api/page5')
+def page5():
+	return render_template('page5/page5.html')
+
+
 @app.route('/static/<path:path>')
 def send_js(path):
     return send_from_directory('static', path)
