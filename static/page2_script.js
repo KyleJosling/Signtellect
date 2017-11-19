@@ -2,8 +2,6 @@
 /*global moment*/
 
 $(document).ready(function(){
-   
-
 
    var countDownTime = 3;
    var waitTime = 2000;
@@ -15,6 +13,7 @@ $(document).ready(function(){
    var correct = 0;
    var incorrect = 0;
 
+
    //returns random letter
    function randomLetter(){
         var n = Math.floor(Math.random()*26);
@@ -24,22 +23,22 @@ $(document).ready(function(){
 
     //sets up buttons with one right button
     function setupButtons(rightLetter){
-      
-      rightAnswer = Math.floor(Math.random()*4);
-      var letter = "";
-      for(var i = 0; i < 4; i++){
-        
-        if(i == rightAnswer){
-          letter = rightLetter;
-        }else{
-          //pickout randomletter that's not rightletter
-          do{
-            letter = randomLetter();
-          }while(letter == rightLetter);
-        }
-
-        $("#btn"+i).attr("src","/public/images/sign_letters/Sign_Language_"+letter+".png");
-
+        var imagesDisplayed = new Array(4);
+        rightAnswer = Math.floor(Math.random()*4);
+        var letter = "";
+        for(var i = 0; i < 4; i++){
+            do {
+                if (i == rightAnswer) {
+                    letter = rightLetter;
+                } else {
+                    //pickout randomletter that's not rightletter
+                    do {
+                        letter = randomLetter();
+                    } while (letter == rightLetter);
+                }
+            }while(imagesDisplayed.includes(letter));
+            imagesDisplayed.push(letter);
+            $("#btn"+i).attr("src","/static/images/sign_letters/Sign_Language_"+letter+".png");
       }
     }
 
@@ -50,7 +49,6 @@ $(document).ready(function(){
       $('#countdown').css('color', 'black');
    }
 
-   
 
    function moveProgressBar(progress){
     $( "#progressbar" ).progressbar({value: progress});

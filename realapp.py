@@ -5,30 +5,35 @@ from flask import Flask , render_template#, jsonify,request
 #import random
 
 
-app=Flask(__name__, template_folder='public')
-
-#controller=Leap.Controller()
-#controller.set_policy(Leap.Controller.POLICY_BACKGROUND_FRAMES)
+app=Flask(__name__, template_folder='public', static_folder="static")
 
 
-@app.route('/')
-def current_symbol():
-	#global past_symbol
-	#global prev_prediction
-    return render_template('index.html')
-
-	#detect if there is a hand
-	#hand_pos=get_hand_position(controller)
-
-	#if not hand_pos:
-	#	print "wtf"
-	#	return jsonify(symbol='meh')
-	#features=[v for k,v in hand_pos.iteritems()]
-
-	#return jsonify(symbol=features)
+@app.route('/api')
+def index():
+	return render_template('index.html')
 
 
-@app.route('/')
+@app.route('/api/page1')
+def page1():
+	return render_template('page1/page1.html')
+
+	
+@app.route('/api/page2')
+def page2():
+	return render_template('page2/page2.html')
+
+
+@app.route('/api/page3')
+def page3():
+	return render_template('page3/page3.html')
+
+@app.route('/static/<path:path>')
+def send_js(path):
+    return send_from_directory('static', path)
+
+
 
 if __name__=='__main__':
 	app.run(debug=True)
+
+

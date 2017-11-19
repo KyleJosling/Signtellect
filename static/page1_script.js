@@ -24,20 +24,21 @@ $(document).ready(function(){
 
     //sets up buttons with one right button
     function setupButtons(rightLetter){
-      
+      var lettersDisplayed = new Array(5);
       rightAnswer = Math.floor(Math.random()*5);
       var letter = "";
       for(var i = 0; i < 5; i++){
-        
-        if(i == rightAnswer){
-          letter = rightLetter;
-        }else{
-          //pickout randomletter that's not rightletter
-          do{
-            letter = randomLetter();
-          }while(letter == rightLetter);
-        }
-
+        do {
+            if (i == rightAnswer) {
+                letter = rightLetter;
+            } else {
+                //pickout randomletter that's not rightletter
+                do {
+                    letter = randomLetter();
+                } while (letter == rightLetter);
+            }
+        }while(lettersDisplayed.includes(letter));
+        lettersDisplayed.push(letter);
         $("#btn"+i).html('');
         $("#btn"+i).append(letter);
 
@@ -46,11 +47,11 @@ $(document).ready(function(){
 
     //loads new random image
     function newimage(randomLetter){
-      $("#question-image").attr("src","/public/images/sign_letters/Sign_Language_"+randomLetter+".png");
+      $("#question-image").attr("src","/static/images/sign_letters/Sign_Language_"+randomLetter+".png");
    }
 
    function answerimage(letter){
-      $("#question-image").attr("src","/public/images/sign_letters_answers/Sign_Language_with_"+letter+".png");
+      $("#question-image").attr("src","/static/images/sign_letters_answers/Sign_Language_with_"+letter+".png");
    }
 
    function moveProgressBar(progress){
