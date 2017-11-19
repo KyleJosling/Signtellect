@@ -46,7 +46,7 @@ def current_symbol():
 	hand_pos=get_hand_position(controller)
 
 	if not hand_pos:
-		new=past_symbol !=' '
+		new=past_symbol !='%'
 		past_symbol=' '
 		return jsonify(symbol='bleh',new=new)
 	features=np.array([v for k,v in hand_pos.iteritems()]).reshape(1,-1)
