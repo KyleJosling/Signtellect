@@ -14,88 +14,97 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
     </script>
     <script src="/static/page3_script.js" type="text/javascript">
+    </script><!-- reference Moment.js library -->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript">
     </script>
+
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>Course 3</title>
-    <!-- Bootstrap -->
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <title>Course 3</title><!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet">
     <!--Personal CSS-->
-    <link href="/static/page3_main.css" rel="stylesheet" type="text/css">
+    <link href="/static/page2_main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="fluid-container">
-        
-        <div class = "row">
-             <!--Padding row-->
-            <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+
+<div class="fluid-container">
+
+    <div class = "row">
+        <!--Padding row-->
+        <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
 
 
-             <!--Padding row-->
-            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10 content">
-                
-                <nav class="navbar navbar-default">
-                  <div class="container-fluid">
-                    
-                      <a class="navbar-brand" href="#">Signtology</a>
-                      <ul class="nav navbar-nav">
+        <!--Padding row-->
+        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10 content">
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <a class="navbar-brand" href="#">Signtology</a>
+                    <ul class="nav navbar-nav">
                         <li><a href="/api">Home</a></li>
                         <li><a href="page1">Course 1</a></li>
                         <li><a href="page2">Course 2</a></li>
-                        <li class='active'><a href="">Course 3</a></li>
-                        
-                      </ul>
-                
-                  </div>
-                </nav>
+                        <li class ='active'><a href="page3">Course 3</a></li>
 
-                <h1 class="text-center">Sign Language Duolingo</h1>
-            </div>
-            
+                    </ul>
 
-             <!--Padding row-->
-            <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+                </div>
+            </nav>
+
+            <h1 class="text-center">Speed Alphabet Challenge</h1>
+
+            <hr>
         </div>
 
 
-        <div class="row">
-            <!--Padding row-->
-            <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
-            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-5 content">
-                <div class="text-center" id="slide">
-                    <img id="question-image" src="">
-                    <p class="text-center" id="countdown">3</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-5 content">
-                <!--Possibility buttons-->
-                <div id="buttons">
-                    <button class="btn btn-primary" id="btn0">A</button> 
-                    <button class="btn btn-primary" id="btn1">B</button> 
-                    <button class="btn btn-primary" id="btn2">C</button> 
-                    <button class="btn btn-primary" id="btn3">D</button> 
-                    <button class="btn btn-primary" id="btn4">E</button>
-                </div>
-            </div><!--Padding row-->
-            <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
-        </div>
-        <div class="row">
-            <!--Padding row-->
-            <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div><!--Padding row-->
-            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10 content">
-                <div id="progressbar"></div>
-                <div id="score-div">
-                    <p class = 'score'>Score: </p> 
-                    <p class = 'score' id='correct'>0</p>
-                    <p class = 'score'> / </p>
-                    <p class = 'score' id = 'total'>0</p>
-                </div>
-
-            </div><!--Padding row-->
-            <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
-        </div>
+        <!--Padding row-->
+        <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
     </div>
+
+
+    <div class="row">
+        <!--Padding row-->
+        <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-5 content">
+            
+            <div class="text-center" id="slide">
+                <p class="text-center" id="countdown">3</p>
+            </div>
+
+        </div>
+        
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-5 content">
+
+            <!--Possibility buttons-->
+            <div id="buttons">
+                <img id="answer-image" src=" ">
+                <p id = 'success'></p>
+            </div>
+        </div>
+        <!--Padding row-->
+        <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+    </div>
+
+
+
+    <div class="row">
+        <!--Padding row-->
+        <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div><!--Padding row-->
+        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10 content">
+            <div id="progressbar"></div>
+            <div id="score-div">
+                <p class = 'score'>Score: </p>
+                <p class = 'score' id='correct'>0</p>
+                <p class = 'score'> / </p>
+                <p class = 'score' id = 'total'>0</p>
+            </div>
+
+        </div><!--Padding row-->
+        <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+    </div>
+</div>
 </body>
 </html>
